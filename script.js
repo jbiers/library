@@ -13,7 +13,7 @@ function updateLibrary() {
 
         book = document.createElement('div');
         book.classList.add('book');
-        book.innerHTML = `<button class="remove-button">x</button>
+        book.innerHTML = `<button class="remove-button ${i}">x</button>
         <p class="title">${libraryArray[i].title}</p>
 
         <p>by <span class="author">${libraryArray[i].author}</span></p>
@@ -93,6 +93,23 @@ closeButton.addEventListener('click', () => {
     else {
         return;
     }
+});
+
+const removeButtons = document.getElementsByClassName('remove-button');
+const removeButtonsArray = Array.from(document.getElementsByClassName('remove-button'));
+
+removeButtonsArray.forEach(button => {
+    button.addEventListener('click', () => {
+        /*
+        **
+        ARE YOU SURE YOU WANT TO REMOVE??
+        **
+        */
+
+        libraryArray.splice(button.classList[1], 1);
+
+        updateLibrary();
+    });
 });
 
 // Add local storage functionality
