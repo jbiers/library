@@ -1,7 +1,32 @@
-let myLibrary = [];
+const library = document.getElementById('library');
+
+let libraryArray = [new Book('Harry Potter', 'J.K. Rowling', 300, true, '22/01/2022')];
+let book;
 
 function updateLibrary() {
     // updates the HTML based on the current state of the array
+    while (library.firstChild) {
+        library.removeChild(library.firstChild);
+    };
+
+    for (let i = 0; i < libraryArray.length; i++) {
+
+        book = document.createElement('div');
+        book.classList.add('book');
+        book.innerHTML = `<button class="remove-button">x</button>
+        <p class="title">${libraryArray[i].title}</p>
+
+        <p>by <span class="author">${libraryArray[i].author}</span></p>
+
+        <p><span class="pages">${libraryArray[i].pages}</span> pages</p>
+
+        <p>Added <span class="date-added">${libraryArray[i].insertionDate}</span></p>
+
+        <p class="read">${(libraryArray[i].read) ? "Read" : "Not Read"}</p>`
+
+
+        library.appendChild(book);
+    };
 };
 
 function Book(title, author, pages, read, insertionDate) {
