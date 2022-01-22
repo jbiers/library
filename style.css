@@ -4,3 +4,78 @@
     margin: 0;
     font-family: Poppins, sans-serif;
 }
+
+/*
+    Individual book and children elements
+*/
+.book {
+    background-color: gray;
+    font-size: 20px;
+    width: 250px;
+    padding: 20px;
+}
+
+.remove-button {
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+}
+
+
+.remove-button:hover {
+    cursor: pointer;
+}
+
+
+/*
+    Add book button
+*/
+#add-button {
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+#add-button {
+    cursor: pointer;
+}
+
+/* 
+    Add button form and children
+*/
+#add-form {
+    background-color: tomato;
+
+    width: 400px;
+    height: 600px;
+    padding: 20px;
+
+    position: absolute;
+    top: calc((100vh / 2) - 300px);
+    left: calc((100vw / 2) - 200px);
+}
+
+#add-form.false {
+    display: none;
+};
+
+#add-form.true {
+    display: block;
+}
+
+#close-button {
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+}
+
+#close-button:hover {
+    cursor: pointer;
+}
