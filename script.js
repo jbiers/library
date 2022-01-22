@@ -3,14 +3,14 @@ function Book(title, author, pages, read) {
     this.author = author;
     this.pages = pages;
     this.read = read;
+};
 
-    this.info = function () {
-        if (read) {
-            return `${title} by ${author} , ${pages} pages, has been read`;
-        }
+Book.prototype.info = function () {
+    if (this.read) {
+        return `${this.title} by ${this.author} , ${this.pages} pages, has been read`;
+    }
 
-        else {
-            return `${title} by ${author} , ${pages} pages, not read yet`;
-        }
-    };
+    else {
+        return `${this.title} by ${this.author} , ${this.pages} pages, not read yet`;
+    }
 };
