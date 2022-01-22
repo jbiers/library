@@ -49,7 +49,7 @@
 /* 
     Add button form and children
 */
-#add-form {
+#add-form-div {
     background-color: tomato;
 
     width: 400px;
@@ -61,11 +61,11 @@
     left: calc((100vw / 2) - 200px);
 }
 
-#add-form.false {
+#add-form-div.false {
     display: none;
 };
 
-#add-form.true {
+#add-form-div.true {
     display: block;
 }
 

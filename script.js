@@ -65,9 +65,42 @@ function addBook() {
 
 const addButton = document.getElementById('add-button');
 const closeButton = document.getElementById('close-button');
-const form = document.getElementById('add-form');
+const submitButton = document.getElementById('submit-button');
+const form = document.getElementById('add-form-div');
+
+let titleInput, authorInput, pagesInput, dateAdded;
+
 
 let formState = false;
+
+function submitFunction() {
+    /*
+    *
+        TEST FOR INPUT CORRECTNESS
+    *
+    */
+    // GET VALUES FROM FORM
+    titleInput = document.getElementById('title-input').value;
+    authorInput = document.getElementById('author-input').value;
+    pagesInput = document.getElementById('page-count-input').value;
+    dateAdded = document.getElementById('date-added-input').value;
+
+    console.log(titleInput + authorInput + pagesInput);
+    // CREATE OBJECT WITH THESE VALUES AND PUSH TO ARRAY
+
+    updateLibrary();
+
+    if (formState) {
+        form.classList.remove(formState);
+
+        formState = !formState;
+        form.classList.add(formState);
+    }
+
+    else {
+        return;
+    }
+};
 
 addButton.addEventListener('click', () => {
     if (formState) {
@@ -95,10 +128,9 @@ closeButton.addEventListener('click', () => {
     }
 });
 
-const removeButtons = document.getElementsByClassName('remove-button');
-const removeButtonsArray = Array.from(document.getElementsByClassName('remove-button'));
+const removeButtons = Array.from(document.getElementsByClassName('remove-button'));
 
-removeButtonsArray.forEach(button => {
+removeButtons.forEach(button => {
     button.addEventListener('click', () => {
         /*
         **

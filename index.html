@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,10 +38,10 @@
             </div>
         </div>
 
-        <div id="add-form" class="false">
+        <div id="add-form-div" class="false">
             <button id="close-button">x</button>
 
-            <form>
+            <form id="add-form" action="" method="post">
                 <label id="title-label" for="title-input">Title:</label>
                 <input type="text" id="title-input" name="title-input">
 
@@ -48,7 +49,7 @@
                 <input type="text" id="author-input" name="author-input">
 
                 <label id="page-count-label" for="page-count-input">Page Count:</label>
-                <input type="number" id="page-count-input" name="page-count-input">
+                <input type="text" id="page-count-input" name="page-count-input">
 
                 <label id="date-added-label" for="page-count-input">Date Added:</label>
                 <input type="date" id="date-added-input" name="date-added-input">
@@ -57,7 +58,7 @@
                 <input type="checkbox" name="read-input" id="read-input-yes">
                 <input type="checkbox" name="read-input" id="read-input-no">
 
-                <input type="submit" value="Add Book">
+                <button onclick="submitFunction()" id="submit-button">Add Book</button>
             </form>
         </div>
 
