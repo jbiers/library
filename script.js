@@ -5,22 +5,6 @@ let book;
 
 function updateLibrary() {
     // updates the HTML based on the current state of the array
-    removeButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            /*
-            **
-            ARE YOU SURE YOU WANT TO REMOVE??
-            **
-            */
-
-            libraryArray.splice(button.classList[1], 1);
-
-            updateLibrary();
-            removeButtons = Array.from(document.getElementsByClassName('remove-button'));
-
-
-        });
-    });
 
     while (library.firstChild) {
         library.removeChild(library.firstChild);

@@ -1,0 +1,82 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: Poppins, sans-serif;
+}
+
+/*
+    Individual book item and its children elements
+*/
+
+.book {
+    background-color: gray;
+    font-size: 20px;
+    width: 250px;
+    padding: 20px;
+}
+
+.remove-book-button {
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+}
+
+.remove-book-button:hover {
+    cursor: pointer;
+}
+
+/*
+    Open form button
+*/
+
+#open-form-button {
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+#open-form-button:hover {
+    cursor: pointer;
+}
+
+/*
+    Form div
+*/
+
+#form-div {
+    background-color: tomato;
+
+    width: 400px;
+    height: 600px;
+    padding: 20px;
+
+    position: absolute;
+    top: calc((100vh / 2) - 300px);
+    left: calc((100vw / 2) - 200px);
+}
+
+#form-div.false {
+    display: none;
+}
+
+#form-div.true {
+    display: block;
+}
+
+#close-form-button {
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+}
+
+#close-form-button:hover {
+    cursor: pointer;
+}
