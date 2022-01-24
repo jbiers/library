@@ -41,7 +41,7 @@
         <div id="add-form-div" class="false">
             <button id="close-button">x</button>
 
-            <form id="add-form" action="" method="post">
+            <form action="" id="add-form">
                 <label id="title-label" for="title-input">Title:</label>
                 <input type="text" id="title-input" name="title-input">
 
@@ -55,10 +55,9 @@
                 <input type="date" id="date-added-input" name="date-added-input">
 
                 <label id="read-label" for="read-input">Read:</label>
-                <input type="checkbox" name="read-input" id="read-input-yes">
-                <input type="checkbox" name="read-input" id="read-input-no">
+                <input type="checkbox" name="read-input" id="read-input">
 
-                <button onclick="submitFunction()" id="submit-button">Add Book</button>
+                <button id="submit-button" type="button">Add Book</button>
             </form>
         </div>
 

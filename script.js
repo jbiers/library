@@ -5,6 +5,23 @@ let book;
 
 function updateLibrary() {
     // updates the HTML based on the current state of the array
+    removeButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            /*
+            **
+            ARE YOU SURE YOU WANT TO REMOVE??
+            **
+            */
+
+            libraryArray.splice(button.classList[1], 1);
+
+            updateLibrary();
+            removeButtons = Array.from(document.getElementsByClassName('remove-button'));
+
+
+        });
+    });
+
     while (library.firstChild) {
         library.removeChild(library.firstChild);
     };
@@ -63,17 +80,37 @@ function addBook() {
     // calls updateArray
 };
 
+let removeButtons = Array.from(document.getElementsByClassName('remove-button'));;
+
+function setRemoveButtons() {
+    removeButtons = Array.from(document.getElementsByClassName('remove-button'));
+
+    removeButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            /*
+            **
+            ARE YOU SURE YOU WANT TO REMOVE??
+            **
+            */
+
+            libraryArray.splice(button.classList[1], 1);
+
+            updateLibrary();
+            removeButtons = Array.from(document.getElementsByClassName('remove-button'));
+
+        });
+    });
+}
+
 const addButton = document.getElementById('add-button');
 const closeButton = document.getElementById('close-button');
 const submitButton = document.getElementById('submit-button');
 const form = document.getElementById('add-form-div');
 
-let titleInput, authorInput, pagesInput, dateAdded;
-
-
+let titleInput, authorInput, pagesInput, dateAdded, readInput;
 let formState = false;
 
-function submitFunction() {
+submitButton.addEventListener('click', () => {
     /*
     *
         TEST FOR INPUT CORRECTNESS
@@ -84,11 +121,13 @@ function submitFunction() {
     authorInput = document.getElementById('author-input').value;
     pagesInput = document.getElementById('page-count-input').value;
     dateAdded = document.getElementById('date-added-input').value;
+    readInput = document.getElementById('read-input').value;
 
-    console.log(titleInput + authorInput + pagesInput);
-    // CREATE OBJECT WITH THESE VALUES AND PUSH TO ARRAY
+    libraryArray.push(new Book('Harry Potter', 'J.K. Rowling', 900, true, '22/01/2022'));
 
     updateLibrary();
+
+    setRemoveButtons();
 
     if (formState) {
         form.classList.remove(formState);
@@ -96,18 +135,10 @@ function submitFunction() {
         formState = !formState;
         form.classList.add(formState);
     }
-
-    else {
-        return;
-    }
-};
+});
 
 addButton.addEventListener('click', () => {
-    if (formState) {
-        return;
-    }
-
-    else {
+    if (!formState) {
         form.classList.remove(formState);
 
         formState = !formState;
@@ -122,26 +153,6 @@ closeButton.addEventListener('click', () => {
         formState = !formState;
         form.classList.add(formState);
     }
-
-    else {
-        return;
-    }
-});
-
-const removeButtons = Array.from(document.getElementsByClassName('remove-button'));
-
-removeButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        /*
-        **
-        ARE YOU SURE YOU WANT TO REMOVE??
-        **
-        */
-
-        libraryArray.splice(button.classList[1], 1);
-
-        updateLibrary();
-    });
 });
 
 // Add local storage functionality
