@@ -23,6 +23,7 @@ Book.prototype.remove = function (index) {
 
 const openFormButton = document.getElementById('open-form-button');
 const closeFormButton = document.getElementById('close-form-button');
+const submitFormButton = document.getElementById('submit-form-button');
 const formDiv = document.getElementById('form-div');
 
 let formState = false;
@@ -53,12 +54,32 @@ function closeForm() {
     }
 };
 
+let newTitle, newAuthor, newPages, newReadStatus;
+let form = document.forms[0];
+
+function submitForm() {
+    newTitle = form['title-input'].value; // exist
+    newAuthor = form['author-input'].value; // exist
+    newPages = form['pages-input'].value; // exist, be number
+    newReadStatus = form['read-status-input'].value;
+
+    libraryArray.push(new Book(newTitle, newAuthor, newPages, newReadStatus));
+
+    form.reset();
+};
+
 openFormButton.addEventListener('click', () => {
     openForm();
 });
 
 closeFormButton.addEventListener('click', () => {
     closeForm();
+});
+
+submitFormButton.addEventListener('click', () => {
+    submitForm();
+    closeForm();
+    renderLibrary();
 });
 
 const library = document.getElementById('library');
