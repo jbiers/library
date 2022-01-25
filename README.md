@@ -8,6 +8,11 @@ A LIbrary project made with HTML, CSS and JavaScript with the goal of practicing
 - manage checkbox type input (toggle switch)
 - add book functionality
 
+- STYLE FORM
+- ADD ARROWS
+- MADE BY
+- ANIMATION OPEN FORM
+
 ## Learned
 - ternary operator
 - pattern behavior for buttons in forms is to submit
