@@ -5,10 +5,10 @@
     font-family: Poppins, sans-serif;
 
     --ice: #f4f1de;
-    --pink: #e07a5f;
+    --lavander: #cbbaed;
     --dark-blue: #3d405b;
-    --green: #81b29a;
-    --beige: #f2cc8f;
+    --redwood: #ad5d4e;
+    --brown: #957964;
 
 }
 
@@ -23,25 +23,73 @@ h1 {
 }
 
 /*
+    Entire library
+*/
+
+#library-wrap {
+    width: 100vw;
+    height: 80vh;
+    background-color: var(--redwood);
+}
+
+#library {
+    width: 90vw;
+    height: 80vh;
+    margin: auto;
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/*
     Individual book item and its children elements
 */
 
 .book {
-    background-color: var();
-    font-size: 20px;
-    width: 250px;
+    background-color: var(--dark-blue);
+    color: var(--ice);
+
+    position: relative;
+
+    flex-grow: 0;
+    flex-shrink: 0;
+
+    font-size: 18px;
+    width: 350px;
+    height: 250px;
     padding: 20px;
+
+    border-radius: 15px;
+
+    margin: 50px 30px 50px 30px;;
+}
+
+.book-div-content {
+    position: absolute;
+    top: -27px;
 }
 
 .remove-book-button {
+    color: var(--ice);
+    background-color: var(--dark-blue);
+
     border: none;
     border-radius: 50%;
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
+    font-size: 17px;
+
+    margin: 40px 140px;
 }
 
 .remove-book-button:hover {
     cursor: pointer;
+}
+
+.book .title {
+    font-size: 33px;
+    padding: 0 0 35px 0;
+    font-weight: bold;
 }
 
 /*

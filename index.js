@@ -120,7 +120,7 @@ submitFormButton.addEventListener('click', () => {
 
 const library = document.getElementById('library');
 
-let bookDiv, removeBookButton, title, author, pages, dateAdded, readStatus;
+let bookDiv, bookDivContent, removeBookButton, title, author, pages, dateAdded, readStatus;
 
 function renderLibrary() {
     while (library.firstChild) {
@@ -131,8 +131,11 @@ function renderLibrary() {
         bookDiv = document.createElement('div');
         bookDiv.classList.add('book');
 
+        bookDivContent = document.createElement('div');
+        bookDivContent.classList.add('book-div-content');
+
         removeBookButton = document.createElement('button');
-        removeBookButton.innerHTML = 'X'
+        removeBookButton.innerHTML = "<i class='bx bx-trash'></i>";
         removeBookButton.classList.add('remove-book-button');
         removeBookButton.classList.add(i);
 
@@ -161,8 +164,18 @@ function renderLibrary() {
         readStatus.classList.add('read-status');
         readStatus.innerHTML = `${(libraryArray[i].readStatus) ? 'Read' : 'Not Read'}`;
 
-
-        bookDiv.append(removeBookButton, title, author, pages, dateAdded, readStatus);
+        bookDiv.appendChild(bookDivContent);
+        bookDivContent.append(title, author, pages, dateAdded, readStatus, removeBookButton);
         library.appendChild(bookDiv);
     };
 };
+
+libraryArray.push(new Book('Harry Potter', 'J.K. Rowling', 300, true));
+libraryArray.push(new Book('Percy Jackson', 'Rick Riordan', 200, true));
+libraryArray.push(new Book('Sherlock Holmes', 'Arthur Conan Doyle', 300, true));
+libraryArray.push(new Book('Harry Potter', 'J.K. Rowling', 300, true));
+libraryArray.push(new Book('Harry Potter', 'J.K. Rowling', 300, true));
+libraryArray.push(new Book('Percy Jackson', 'Rick Riordan', 200, true));
+libraryArray.push(new Book('Percy Jackson', 'Rick Riordan', 200, true));
+libraryArray.push(new Book('Sherlock Holmes', 'Arthur Conan Doyle', 300, true));
+renderLibrary();
