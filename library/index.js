@@ -67,7 +67,7 @@ let bookDiv, removeBookButton, title, author, pages, dateAdded, readStatus;
 
 function renderLibrary() {
     while (library.firstChild) {
-        library.removeChild(firstChild);
+        library.removeChild(library.firstChild);
     };
 
     for (let i = 0; i < libraryArray.length; i++) {
@@ -75,34 +75,37 @@ function renderLibrary() {
         bookDiv.classList.add('book');
 
         removeBookButton = document.createElement('button');
+        removeBookButton.innerHTML = 'X'
         removeBookButton.classList.add('remove-book-button');
         removeBookButton.classList.add(i);
 
         removeBookButton.addEventListener('click', () => {
+            console.log("click");
             libraryArray[i].remove(i);
         });
 
         title = document.createElement('p');
         title.classList.add('title');
-        title.innerHTML(libraryArray[i].title);
+        title.innerHTML = libraryArray[i].title;
 
         author = document.createElement('p');
         author.classList.add('author');
-        author.innerHTML(`by ${libraryArray[i].author}`);
+        author.innerHTML = `by ${libraryArray[i].author}`;
 
         pages = document.createElement('p');
         pages.classList.add('pages');
-        pages.innerHTML(`${libraryArray[i].pages} pages`);
+        pages.innerHTML = `${libraryArray[i].pages} pages`;
 
         dateAdded = document.createElement('p');
         dateAdded.classList.add('date-added');
-        dateAdded.innerHTML(`Added ${libraryArray[i].dateAdded}`);
+        dateAdded.innerHTML = `Added ${libraryArray[i].dateAdded}`;
 
         readStatus = document.createElement('p');
         readStatus.classList.add('read-status');
-        readStatus.innerHTML(`${(libraryArray[i].readStatus) ? 'Read' : 'Not Read'}`);
+        readStatus.innerHTML = `${(libraryArray[i].readStatus) ? 'Read' : 'Not Read'}`;
 
 
         bookDiv.append(removeBookButton, title, author, pages, dateAdded, readStatus);
+        library.appendChild(bookDiv);
     };
 };
