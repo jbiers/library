@@ -57,15 +57,52 @@ function closeForm() {
 let newTitle, newAuthor, newPages, newReadStatus;
 let form = document.forms[0];
 
+let titleWarning, authorWarning, pagesWarning;
+
 function submitForm() {
-    newTitle = form['title-input'].value; // exist
-    newAuthor = form['author-input'].value; // exist
-    newPages = form['pages-input'].value; // exist, be number
-    newReadStatus = form['read-status-input'].value;
+    newTitle = form['title-input'].value;
+    titleWarning = document.getElementById('title-warning');
+
+    if (newTitle == '') {
+        titleWarning.innerHTML = 'Please input a book title.'
+
+        return;
+    };
+
+    newAuthor = form['author-input'].value;
+    authorWarning = document.getElementById('author-warning');
+
+    if (newAuthor == '') {
+        authorWarning.innerHTML = 'Please input a book author.'
+
+        return;
+    };
+
+    newPages = form['pages-input'].value;
+    pagesWarning = document.getElementById('pages-warning');
+
+    if (newPages == '') {
+        pagesWarning.innerHTML = 'Please input a number of pages.'
+
+        return;
+    }
+
+    if (isNaN(newPages)) {
+        pagesWarning.innerHTML = 'Please input a valid number of pages.'
+
+        return;
+    };
+
+    newReadStatus = form['read-status-input'].checked;
 
     libraryArray.push(new Book(newTitle, newAuthor, newPages, newReadStatus));
 
     form.reset();
+    closeForm();
+
+    titleWarning.innerHTML = '';
+    authorWarning.innerHTML = '';
+    pagesWarning.innerHTML = '';
 };
 
 openFormButton.addEventListener('click', () => {
@@ -78,7 +115,6 @@ closeFormButton.addEventListener('click', () => {
 
 submitFormButton.addEventListener('click', () => {
     submitForm();
-    closeForm();
     renderLibrary();
 });
 

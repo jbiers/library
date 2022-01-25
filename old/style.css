@@ -6,9 +6,8 @@
 }
 
 /*
-    Individual book item and its children elements
+    Individual book and children elements
 */
-
 .book {
     background-color: gray;
     font-size: 20px;
@@ -16,22 +15,23 @@
     padding: 20px;
 }
 
-.remove-book-button {
+.remove-button {
     border: none;
     border-radius: 50%;
     width: 30px;
     height: 30px;
 }
 
-.remove-book-button:hover {
+
+.remove-button:hover {
     cursor: pointer;
 }
 
-/*
-    Open form button
-*/
 
-#open-form-button {
+/*
+    Add book button
+*/
+#add-button {
     width: 50px;
     height: 50px;
     border: none;
@@ -42,15 +42,14 @@
     right: 10px;
 }
 
-#open-form-button:hover {
+#add-button {
     cursor: pointer;
 }
 
-/*
-    Form div
+/* 
+    Add button form and children
 */
-
-#form-div {
+#add-form-div {
     background-color: tomato;
 
     width: 400px;
@@ -62,21 +61,21 @@
     left: calc((100vw / 2) - 200px);
 }
 
-#form-div.false {
+#add-form-div.false {
     display: none;
-}
+};
 
-#form-div.true {
+#add-form-div.true {
     display: block;
 }
 
-#close-form-button {
+#close-button {
     border: none;
     border-radius: 50%;
     width: 30px;
     height: 30px;
 }
 
-#close-form-button:hover {
+#close-button:hover {
     cursor: pointer;
 }

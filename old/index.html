@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <title>Library</title>
+</head>
+
+<body>
+    <header>
+        <h1>Library</h1>
+    </header>
+
+    <main>
+        <div id="library">
+            <div class="book">
+                <button class="remove-button 0">x</button>
+                <p class="title">Harry Potter and the Sorcerer's Stone</p>
+
+                <p>by <span class="author">J.K. Rowling</span></p>
+
+                <p><span class="pages">300</span> pages</p>
+
+                <p>Added <span class="date-added">22/01/2022</span></p>
+
+                <p class="read">Read</p>
+            </div>
+        </div>
+
+        <div id="add-form-div" class="false">
+            <button id="close-button">x</button>
+
+            <form action="" id="add-form">
+                <label id="title-label" for="title-input">Title:</label>
+                <input type="text" id="title-input" name="title-input">
+
+                <label id="author-label" for="author-input">Author:</label>
+                <input type="text" id="author-input" name="author-input">
+
+                <label id="page-count-label" for="page-count-input">Page Count:</label>
+                <input type="text" id="page-count-input" name="page-count-input">
+
+                <label id="date-added-label" for="page-count-input">Date Added:</label>
+                <input type="date" id="date-added-input" name="date-added-input">
+
+                <label id="read-label" for="read-input">Read:</label>
+                <input type="checkbox" name="read-input" id="read-input">
+
+                <button id="submit-button" type="button">Add Book</button>
+            </form>
+        </div>
+
+        <button id="add-button">+</button>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
