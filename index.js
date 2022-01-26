@@ -60,6 +60,26 @@ function closeForm() {
     }
 };
 
+const leftButton = document.getElementsByClassName('control-slider')[0];
+const rightButton = document.getElementsByClassName('control-slider')[1];
+
+let initialTransform = 0;
+let transformAmount = 410;
+
+leftButton.addEventListener('click', () => {
+    if (initialTransform <= -transformAmount) {
+        library.style.transform = 'translateX(' + (initialTransform + transformAmount) + 'px)';
+        initialTransform = initialTransform + transformAmount;
+    }
+})
+
+rightButton.addEventListener('click', () => {
+    if (initialTransform >= -((libraryArray.length / 2) * transformAmount) + transformAmount * 4) {
+        library.style.transform = 'translateX(' + (initialTransform - transformAmount) + 'px)';
+        initialTransform = initialTransform - transformAmount;
+    }
+})
+
 let newTitle, newAuthor, newPages, newReadStatus;
 let form = document.forms[0];
 
@@ -175,11 +195,7 @@ function renderLibrary() {
 };
 
 libraryArray.push(new Book('Harry Potter', 'J.K. Rowling', 300, true));
-libraryArray.push(new Book('Percy Jackson', 'Rick Riordan', 200, true));
-libraryArray.push(new Book('Sherlock Holmes', 'Arthur Conan Doyle', 300, true));
-libraryArray.push(new Book('Harry Potter', 'J.K. Rowling', 300, true));
-libraryArray.push(new Book('Harry Potter', 'J.K. Rowling', 300, true));
-libraryArray.push(new Book('Percy Jackson', 'Rick Riordan', 200, true));
-libraryArray.push(new Book('Percy Jackson', 'Rick Riordan', 200, true));
-libraryArray.push(new Book('Sherlock Holmes', 'Arthur Conan Doyle', 300, true));
+
+
+
 renderLibrary();
