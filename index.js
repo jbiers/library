@@ -24,6 +24,8 @@ Book.prototype.remove = function (index) {
 const openFormButton = document.getElementById('open-form-button');
 const closeFormButton = document.getElementById('close-form-button');
 const submitFormButton = document.getElementById('submit-form-button');
+const library = document.getElementById('library');
+const libraryWrapper = document.getElementById('library-wrap');
 const formDiv = document.getElementById('form-div');
 
 let formState = false;
@@ -36,6 +38,8 @@ function openForm() {
     else {
         formState = !formState;
 
+        libraryWrapper.classList.add('blur');
+
         formDiv.classList.remove('false');
         formDiv.classList.add('true');
     }
@@ -44,6 +48,8 @@ function openForm() {
 function closeForm() {
     if (formState) {
         formState = !formState;
+
+        libraryWrapper.classList.remove('blur');
 
         formDiv.classList.remove('true');
         formDiv.classList.add('false');
@@ -117,8 +123,6 @@ submitFormButton.addEventListener('click', () => {
     submitForm();
     renderLibrary();
 });
-
-const library = document.getElementById('library');
 
 let bookDiv, bookDivContent, removeBookButton, title, author, pages, dateAdded, readStatus;
 

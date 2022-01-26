@@ -32,6 +32,10 @@ h1 {
     background-color: #4e4d5c;
 }
 
+.blur {
+    opacity: 0.6;
+}
+
 #library {
     width: 90vw;
     height: 80vh;
@@ -110,12 +114,14 @@ h1 {
     padding-top: 5px;
 
     position: absolute;
-    bottom: 90px;
+    bottom: 100px;
     left: calc((100vw / 2) - 25px);
+    transition: all 0.2s ease;
 }
 
 #open-form-button:hover {
     cursor: pointer;
+    transform: rotate(180deg);
 }
 
 /*
@@ -123,11 +129,13 @@ h1 {
 */
 
 #form-div {
-    background-color: tomato;
+    background-color: var(--ice);
 
     width: 400px;
-    height: 600px;
+    height: 500px;
     padding: 20px;
+
+    border-radius: 15px;
 
     position: absolute;
     top: calc((100vh / 2) - 300px);
@@ -142,13 +150,69 @@ h1 {
     display: block;
 }
 
+
+#form-div .textLabel {
+    padding-right: 70px;
+}
+
+#form-div .textInput {
+    border-radius: 5px;
+    border: 1px solid var(--dark-blue);
+    margin-bottom: 10px;
+
+    width: 100%;
+    height: 30px;
+}
+
+#form-div .warning {
+    font-size: 12px;
+    color: var(--redwood);
+
+    width: 100%;
+    height: 20px;
+    text-align: center;
+}
+
+#form-div #read-status-label {
+    margin-right: 5px;
+}
+
+#form-div #read-status-input {
+    height: 20px;
+    width: 20px;
+    margin-right: 250px;
+}
+
+#form-div #submit-form-button {
+    border: none;
+    background-color: var(--dark-blue);
+    color:var(--ice);
+    font-size: 20px;
+    height: 50px;
+    width: 120px;
+    border-radius: 10px;
+    margin-top: 40px;
+    margin-left: 120px;
+}
+
+#form-div #submit-form-button:hover {
+    cursor: pointer;
+    background-color: #4e4d5c;
+}
+
 #close-form-button {
     border: none;
     border-radius: 50%;
     width: 30px;
     height: 30px;
+
+    margin: 0 0 30px 330px;
+
+    background-color: var(--dark-blue);
+    color: var(--ice);
 }
 
 #close-form-button:hover {
     cursor: pointer;
+    background-color: #4e4d5c;
 }
