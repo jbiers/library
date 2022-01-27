@@ -21,6 +21,12 @@ Book.prototype.remove = function (index) {
     renderLibrary();
 };
 
+Book.prototype.changeReadStatus = function () {
+    this.readStatus = !this.readStatus;
+
+    renderLibrary();
+};
+
 const openFormButton = document.getElementById('open-form-button');
 const closeFormButton = document.getElementById('close-form-button');
 const submitFormButton = document.getElementById('submit-form-button');
@@ -144,7 +150,7 @@ submitFormButton.addEventListener('click', () => {
     renderLibrary();
 });
 
-let bookDiv, bookDivContent, removeBookButton, title, author, pages, dateAdded, readStatus;
+let bookDiv, bookDivContent, removeBookButton, title, author, pages, dateAdded, readStatus, readStatusInput;
 
 function renderLibrary() {
     while (library.firstChild) {
@@ -188,13 +194,41 @@ function renderLibrary() {
         readStatus.classList.add('read-status');
         readStatus.innerHTML = `${(libraryArray[i].readStatus) ? 'Read' : 'Not Read'}`;
 
+        readStatusInput = document.createElement('label');
+        readStatusInput.classList.add('switch');
+        readStatusInput.setAttribute('for', `switch-input${i}`);
+
+        readStatusInput.appendChild(document.createElement('input'));
+
+        if (libraryArray[i].readStatus) {
+            readStatusInput.children[0].checked = true;
+        }
+
+        else {
+            readStatusInput.children[0].checked = false;
+        }
+
+        readStatusInput.children[0].setAttribute('type', 'checkbox');
+        readStatusInput.children[0].classList.add('switch-input');
+        readStatusInput.children[0].id = `switch-input${i}`;
+
+        readStatusInput.appendChild(document.createElement('div'));
+        readStatusInput.children[1].classList.add('switch-fill');
+
+        readStatusInput.addEventListener('change', () => {
+            libraryArray[i].changeReadStatus();
+            renderLibrary();
+        });
+
         bookDiv.appendChild(bookDivContent);
-        bookDivContent.append(title, author, pages, dateAdded, readStatus, removeBookButton);
+        bookDivContent.append(title, author, pages, dateAdded, readStatus, readStatusInput, removeBookButton);
         library.appendChild(bookDiv);
     };
 };
 
 libraryArray.push(new Book('Harry Potter', 'J.K. Rowling', 300, true));
+libraryArray.push(new Book('Percy Jackson', 'Rick Riordan', 250, true));
+libraryArray.push(new Book('Gabriela', 'Jorge Amado', 300, false));
 
 
 

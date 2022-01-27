@@ -122,11 +122,11 @@ h1 {
 
     border: none;
     border-radius: 50%;
-    width: 35px;
-    height: 35px;
     font-size: 17px;
 
-    margin: 40px 140px;
+    text-align: center;
+
+    margin: 15px 150px;
 }
 
 .remove-book-button:hover {
@@ -135,9 +135,59 @@ h1 {
 
 .book .title {
     font-size: 33px;
-    padding: 0 0 35px 0;
+    padding: 0 0 25px 0;
     font-weight: bold;
 }
+
+.book .read-status {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.switch {
+    --switch-width: 40px;
+    --switch-height: calc(var(--switch-width) / 2);
+    --switch-border-radius: calc(var(--switch-height) / 2);
+
+    display: inline-block;
+    cursor: pointer;
+
+    margin: 5px 140px;
+}
+
+.switch-input {
+    display: none;
+}
+
+.switch-fill {
+    position: relative;
+    width: var(--switch-width);
+    height: var(--switch-height);
+    border-radius: var(--switch-border-radius);
+    background: var(--ice);
+    transition: 0.2s ease;
+}
+
+.switch-input:checked ~ .switch-fill {
+    background: #4e4d5c;
+}
+
+.switch-fill::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: var(--switch-height);
+    width: var(--switch-height);
+    background: #fff;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
+    border-radius: var(--switch-border-radius);
+    transition: transform 0.2s ease;
+  }
+
+  .switch-input:checked ~ .switch-fill::after {
+    transform: translateX(var(--switch-height));
+  }
 
 /*
     Open form button
